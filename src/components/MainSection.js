@@ -1,5 +1,8 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import PropTypes from "prop-types";
+import Form from "react-bootstrap/Form";
+import { Typeahead } from "react-bootstrap-typeahead";
+import "react-bootstrap-typeahead/css/Typeahead.css";
 import Footer from "./Footer";
 import VisibleItemList from "../containers/VisibleItemList";
 import { ItemProvider } from "../context/ItemContext";
@@ -9,10 +12,16 @@ class MainSection extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      multiSelections: [],
       showCreators: true,
     };
+    this.setMultiSelections = this.setMultiSelections.bind(this);
     this.updateItemStatus = this.updateItemStatus.bind(this);
     this.updateItemStatusRedux = this.updateItemStatusRedux.bind(this);
+  }
+
+  setMultiSelections(multiSelections) {
+    this.props.actions.setMultiSelections(multiSelections);
   }
 
   updateItemStatusRedux(itemId) {
@@ -35,29 +44,39 @@ class MainSection extends Component {
   }
 
   render() {
-    console.log(this.props);
+    var options = ["Product", "User", "Inventory"];
+
     return (
-      <ItemProvider value={{ showCreators: this.state.showCreators }}>
-        <section className="main">
-          <button
-            className="btn btn-success"
-            onClick={() =>
-              this.setState({ showCreators: !this.state.showCreators })
-            }
-          >
-            Show Creators
-          </button>
-          <VisibleItemList
-            items={this.props.items}
-            updateItemStatus={this.updateItemStatusRedux}
+      <Fragment>
+        <ItemProvider value={{ showCreators: this.state.showCreators }}>
+          <section className="main">
+            <button
+              className="btn btn-success"
+              onClick={() =>
+                this.setState({ showCreators: !this.state.showCreators })
+              }
+            >
+              Show Creators
+            </button>
+            <VisibleItemList
+              items={this.props.items}
+              updateItemStatus={this.updateItemStatusRedux}
+            />
+          </section>
+        </ItemProvider>
+        <Form.Group style={{ marginTop: "20px" }}>
+          <Form.Label>Choose Schema</Form.Label>
+          <Typeahead
+            id="basic-typeahead-multiple"
+            labelKey="name"
+            multiple
+            onChange={() => this.setMultiSelections}
+            options={options}
+            placeholder="Choose schema..."
+            selected={this.state.multiSelections}
           />
-          <Footer
-            completedCount={this.props.completedItems}
-            activeCount={this.props.items.length - this.props.completedItems}
-            onClearCompleted={this.props.actions.clearCompleted}
-          />
-        </section>
-      </ItemProvider>
+        </Form.Group>
+      </Fragment>
     );
   }
 }
@@ -67,7 +86,3 @@ MainSection.propTypes = {
 };
 
 export default MainSection;
-
-/*
-    "https://www.googleapis.com/books/v1/volumes?q=inauthor:jane%20austen"
-  */

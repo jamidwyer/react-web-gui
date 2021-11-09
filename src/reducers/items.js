@@ -7,6 +7,7 @@ import {
   COMPLETE_ITEM,
   COMPLETE_ALL_ITEMS,
   CLEAR_COMPLETED,
+  SET_MULTI_SELECTIONS,
   UPDATE_ITEM_STATUS,
 } from "../constants/ActionTypes";
 
@@ -27,6 +28,12 @@ export default function items(state = initialState, action) {
             ? { ...item, completed: !item.completed }
             : item;
         }),
+      };
+    }
+    case SET_MULTI_SELECTIONS: {
+      return {
+        ...state,
+        multiSelections,
       };
     }
     default:

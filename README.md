@@ -20,9 +20,17 @@ npm 8.1.2
 
 Clone to react-web-gui, change to that directory, then:
 
-`docker run --rm -v src:/opt/web/package.json -p 3000:80 react-web-gui`
+`docker run --rm -v build:/var/www/build -p 3000:80 react-web-gui`
 
 Open http://localhost:3000.
+
+Live reload will happen, but for now, you have to build and restart locally.
+
+`sudo docker build -t react-web-ui .`
+
+Ctrl-C to stop the running docker container, then:
+
+`sudo docker run --rm -p 3000:80 react-web-ui`
 
 ## Docker gotchas
 
@@ -30,6 +38,14 @@ Open http://localhost:3000.
 
 There may be a typo in one of the mount paths.
 
+---
+
 `docker: Error response from daemon: invalid mode`
 
 There may be a typo in one of the mount paths.
+
+---
+
+Maybe you need to peek around the Docker filesystem.
+
+`docker exec -t -i react-web-gui /bin/bash`

@@ -14,3 +14,7 @@ export const updateItemStatus = (id) => ({
   type: types.UPDATE_ITEM_STATUS,
   id,
 });
+export const setMultiSelections = (multiSelections) => ({
+  type: types.SET_MULTI_SELECTIONS,
+  multiSelections,
+});
