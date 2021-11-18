@@ -1,10 +1,10 @@
-# react-web-gui
+# react-web-ui
 
-Intended as a boilerplate, this runs a React web app in Docker. It's currently just a list of items that use hard-coded local data.
+Intended as a boilerplate, this runs a React web app in Docker. It's currently just two half-baked components: 1. A list of items that use hard-coded local data. 2. A search box that filters as you type.
 
 I don't recommend using this for anything but sample code yet, but to use this Docker image:
 
-`docker run jami/react-web-gui`
+`docker run jami/react-web-ui`
 
 ## Requirements
 
@@ -18,19 +18,11 @@ npm 8.1.2
 
 ## Local development
 
-Clone to react-web-gui, change to that directory, then:
+Clone to react-web-ui, change to that directory, then:
 
-`docker run --rm -v build:/var/www/build -p 3000:80 react-web-gui`
+`docker-compose up --build`
 
 Open http://localhost:3000.
-
-Live reload will happen, but for now, you have to build and restart locally.
-
-`sudo docker build -t react-web-ui .`
-
-Ctrl-C to stop the running docker container, then:
-
-`sudo docker run --rm -p 3000:80 react-web-ui`
 
 ## Docker gotchas
 
@@ -48,4 +40,4 @@ There may be a typo in one of the mount paths.
 
 Maybe you need to peek around the Docker filesystem.
 
-`docker exec -t -i react-web-gui /bin/bash`
+`docker exec -t -i react-web-ui /bin/bash`

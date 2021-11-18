@@ -72,7 +72,7 @@ class MainSection extends Component {
             multiple
             onChange={() => this.setMultiSelections}
             options={options}
-            placeholder="Choose schema..."
+            placeholder="Choose your schema..."
             selected={this.state.multiSelections}
           />
         </Form.Group>
