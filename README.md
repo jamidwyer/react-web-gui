@@ -24,6 +24,10 @@ Clone to react-web-ui, change to that directory, then:
 
 Open http://localhost:3000.
 
+## Roadmap
+
+https://trello.com/b/cb1FLbrm/react-web-ui
+
 ## Docker gotchas
 
 `docker: invalid reference format.`
