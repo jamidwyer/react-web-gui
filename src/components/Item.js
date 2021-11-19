@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import { ItemConsumer } from "../context/ItemContext";
 
 export default class Item extends Component {
   static propTypes = {
@@ -27,34 +26,22 @@ export default class Item extends Component {
 
   render() {
     const { item, updateItemStatus } = this.props;
-    const { volumeInfo } = item;
+    const { name, creators, description } = item;
     const itemCompleted = item.completed;
 
+    console.log(item);
+
     const element = (
-      <ItemConsumer>
-        {({ showCreators }) => (
-          <div className="list-group-item view">
-            <input
-              className="toggle"
-              type="checkbox"
-              checked={itemCompleted}
-              onChange={() => this.statusChange()}
-            />
-            <label>{volumeInfo.title}</label>
-            {showCreators ? (
-              <p
-                style={{
-                  fontSize: "12px",
-                  textAlign: "right",
-                  marginRight: "10px",
-                }}
-              >
-                Creator: {volumeInfo.authors[0]}
-              </p>
-            ) : null}
-          </div>
-        )}
-      </ItemConsumer>
+      <div className="list-group-item view">
+        <input
+          className="toggle"
+          type="checkbox"
+          checked={itemCompleted}
+          onChange={() => this.statusChange()}
+        />
+        <label>{name}</label>
+        <p>{description}</p>
+      </div>
     );
 
     return <li>{element}</li>;

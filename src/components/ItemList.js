@@ -16,7 +16,7 @@ const ItemList = ({ items, updateItemStatus, actions }) => (
 );
 
 ItemList.propTypes = {
-  actions: PropTypes.object.isRequired,
+  actions: PropTypes.object,
 };
 
 export default ItemList;

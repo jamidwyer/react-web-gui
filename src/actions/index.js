@@ -10,11 +10,41 @@ export const setVisibilityFilter = (filter) => ({
   type: types.SET_VISIBILITY_FILTER,
   filter,
 });
-export const updateItemStatus = (id) => ({
-  type: types.UPDATE_ITEM_STATUS,
-  id,
-});
-export const setMultiSelections = (multiSelections) => ({
-  type: types.SET_MULTI_SELECTIONS,
-  multiSelections,
-});
+export const updateItemStatus = (id) => {
+  console.log(id);
+  return {
+    type: types.UPDATE_ITEM_STATUS,
+    id,
+  };
+};
+export const setSearchTerms = (searchTerms) => {
+  console.log(searchTerms);
+  return {
+    type: types.SET_MULTI_SELECTIONS,
+    searchTerms,
+  };
+};
+
+export const performSearch = (searchTerms) => {
+  console.log(searchTerms);
+  return {
+    type: types.PERFORM_SEARCH,
+    searchTerms,
+  };
+};
+
+export const fetchSearchData = (searchTerms) => async (dispatch) => {
+  const url = new URL();
+  url.searchParams.set("q", searchTerms);
+  try {
+    const response = await fetch(url);
+    const searchResults = response.json();
+  } catch (e) {
+    console.log(e);
+  }
+  dispatch({
+    type: types.FETCH_SEARCH_DATA,
+    searchResults,
+    searchTerms,
+  });
+};

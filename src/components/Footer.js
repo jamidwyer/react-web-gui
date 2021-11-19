@@ -41,9 +41,9 @@ const Footer = (props) => {
 };
 
 Footer.propTypes = {
-  completedCount: PropTypes.number.isRequired,
-  activeCount: PropTypes.number.isRequired,
-  onClearCompleted: PropTypes.func.isRequired,
+  completedCount: PropTypes.number,
+  activeCount: PropTypes.number,
+  onClearCompleted: PropTypes.func,
 };
 
 export default Footer;

@@ -1,0 +1,160 @@
+{
+  "@context": {
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "schema": "https://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#"
+  },
+  "@graph": [
+    {
+      "@id": "schema:model",
+      "@type": "rdf:Property",
+      "rdfs:comment": "The model of the product. Use with the URL of a ProductModel or a textual representation of the model identifier. The URL of the ProductModel can be from an external source. It is recommended to additionally provide strong product identifiers via the gtin8/gtin13/gtin14 and mpn properties.",
+      "rdfs:label": "model",
+      "schema:domainIncludes": {
+        "@id": "schema:Product"
+      },
+      "schema:rangeIncludes": [
+        {
+          "@id": "schema:Text"
+        },
+        {
+          "@id": "schema:ProductModel"
+        }
+      ]
+    },
+    {
+      "@id": "schema:ProductModel",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "A datasheet or vendor specification of a product (in the sense of a prototypical description).",
+      "rdfs:label": "ProductModel",
+      "rdfs:subClassOf": {
+        "@id": "schema:Product"
+      },
+      "schema:source": {
+        "@id": "http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsClass"
+      }
+    },
+
+    {
+      "@id": "schema:Product",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "Any offered product or service. For example: a pair of shoes; a concert ticket; the rental of a car; a haircut; or an episode of a TV show streamed online.",
+      "rdfs:label": "Product",
+      "rdfs:subClassOf": {
+        "@id": "schema:Thing"
+      },
+      "schema:source": {
+        "@id": "http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms"
+      }
+    },
+    {
+      "@id": "schema:productID",
+      "@type": "rdf:Property",
+      "rdfs:comment": "The product identifier, such as ISBN. For example: ``` meta itemprop=\"productID\" content=\"isbn:123-456-789\" ```.",
+      "rdfs:label": "productID",
+      "rdfs:subPropertyOf": {
+        "@id": "schema:identifier"
+      },
+      "schema:domainIncludes": {
+        "@id": "schema:Product"
+      },
+      "schema:rangeIncludes": {
+        "@id": "schema:Text"
+      }
+    },
+    {
+      "@id": "schema:identifier",
+      "@type": "rdf:Property",
+      "http://www.w3.org/2002/07/owl#equivalentProperty": {
+        "@id": "http://purl.org/dc/terms/identifier"
+      },
+      "rdfs:comment": "The identifier property represents any kind of identifier for any kind of [[Thing]], such as ISBNs, GTIN codes, UUIDs etc. Schema.org provides dedicated properties for representing many of these, either as textual strings or as URL (URI) links. See [background notes](/docs/datamodel.html#identifierBg) for more details.\n        ",
+      "rdfs:label": "identifier",
+      "schema:domainIncludes": {
+        "@id": "schema:Thing"
+      },
+      "schema:rangeIncludes": [
+        {
+          "@id": "schema:PropertyValue"
+        },
+        {
+          "@id": "schema:Text"
+        },
+        {
+          "@id": "schema:URL"
+        }
+      ]
+    },
+    {
+      "@id": "schema:Thing",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "The most generic type of item.",
+      "rdfs:label": "Thing"
+    },
+    {
+      "@id": "schema:Person",
+      "@type": "rdfs:Class",
+      "http://www.w3.org/2002/07/owl#equivalentClass": {
+        "@id": "http://xmlns.com/foaf/0.1/Person"
+      },
+      "rdfs:comment": "A person (alive, dead, undead, or fictional).",
+      "rdfs:label": "Person",
+      "rdfs:subClassOf": {
+        "@id": "schema:Thing"
+      },
+      "schema:source": {
+        "@id": "http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_rNews"
+      }
+    },
+    {
+      "@id": "schema:creator",
+      "@type": "rdf:Property",
+      "rdfs:comment": "The creator/author of this CreativeWork. This is the same as the Author property for CreativeWork.",
+      "rdfs:label": "creator",
+      "schema:domainIncludes": [
+        {
+          "@id": "schema:UserComments"
+        },
+        {
+          "@id": "schema:CreativeWork"
+        }
+      ],
+      "schema:rangeIncludes": [
+        {
+          "@id": "schema:Person"
+        },
+        {
+          "@id": "schema:Organization"
+        }
+      ]
+    },
+    {
+      "@id": "schema:Recipe",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "A recipe. For dietary restrictions covered by the recipe, a few common restrictions are enumerated via [[suitableForDiet]]. The [[keywords]] property can also be used to add more detail.",
+      "rdfs:label": "Recipe",
+      "rdfs:subClassOf": {
+        "@id": "schema:HowTo"
+      }
+    },
+    {
+      "@id": "schema:ingredients",
+      "@type": "rdf:Property",
+      "rdfs:comment": "A single ingredient used in the recipe, e.g. sugar, flour or garlic.",
+      "rdfs:label": "ingredients",
+      "rdfs:subPropertyOf": {
+        "@id": "schema:supply"
+      },
+      "schema:domainIncludes": {
+        "@id": "schema:Recipe"
+      },
+      "schema:rangeIncludes": {
+        "@id": "schema:Text"
+      },
+      "schema:supersededBy": {
+        "@id": "schema:recipeIngredient"
+      }
+    }
+  ]
+}
