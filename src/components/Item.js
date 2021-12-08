@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
+import InputGroup from 'react-bootstrap/InputGroup';
 
 export default class Item extends Component {
   static propTypes = {
@@ -29,18 +30,16 @@ export default class Item extends Component {
     const { name, creators, description } = item;
     const itemCompleted = item.completed;
 
-    console.log(item);
-
     const element = (
       <div className="list-group-item view">
-        <input
-          className="toggle"
-          type="checkbox"
-          checked={itemCompleted}
-          onChange={() => this.statusChange()}
-        />
-        <label>{name}</label>
-        <p>{description}</p>
+        <InputGroup className="mb-3">
+          <InputGroup.Checkbox aria-label={name} 
+            checked={itemCompleted}
+            onChange={() => this.statusChange()}
+          />
+          <InputGroup.Text>{name}</InputGroup.Text>
+            {description ? <InputGroup.Text>{description}</InputGroup.Text> : null }
+        </InputGroup>
       </div>
     );
 
