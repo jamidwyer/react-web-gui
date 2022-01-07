@@ -1,7 +1,7 @@
 import React from 'react'
 import { createRenderer } from 'react-test-renderer/shallow'
 import App from './App'
-import Header from '../containers/Header'
+import SectionTitle from '../components/SectionTitle'
 import MainSection from '../containers/MainSection'
 
 
@@ -13,11 +13,11 @@ const setup = propOverrides => {
 }
 
 describe('components', () => {
-  describe('Header', () => {
+  describe('SectionTitle', () => {
     it('should render', () => {
       const output = setup()
       const [ header ] = output.props.children
-      expect(header.type).toBe(Header)
+      expect(header.type).toBe(SectionTitle)
     })
   })
   

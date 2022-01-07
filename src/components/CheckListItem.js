@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import InputGroup from 'react-bootstrap/InputGroup';
 
-export default class Item extends Component {
+export default class CheckListItem extends Component {
   static propTypes = {
     item: PropTypes.object.isRequired,
     editItem: PropTypes.func.isRequired,
@@ -20,7 +19,9 @@ export default class Item extends Component {
   statusChange() {
     const { item, updateItemStatus } = this.props;
     const status =
-      !item.status || item.status === "unread" ? "completed" : "unread";
+      !item.status || item.status === "unread"
+        ? "completed"
+        : "unread";
     this.setState({ completed: status });
     updateItemStatus(item.id, status);
   }
@@ -31,18 +32,27 @@ export default class Item extends Component {
     const itemCompleted = item.completed;
 
     const element = (
-      <div className="list-group-item view">
-        <InputGroup className="mb-3">
-          <InputGroup.Checkbox aria-label={name} 
+      <>
+        <div class="flex items-center mb2">
+          <input
+            class="mr2"
+            type="checkbox"
+            id={name}
+            value={name}
+            aria-label={name}
             checked={itemCompleted}
             onChange={() => this.statusChange()}
           />
-          <InputGroup.Text>{name}</InputGroup.Text>
-            {description ? <InputGroup.Text>{description}</InputGroup.Text> : null }
-        </InputGroup>
-      </div>
+          <label for={name} class="lh-copy">
+            {name}
+          </label>
+        </div>
+        <div class="flex mb2">
+          {description ? <text>{description}</text> : null}
+        </div>
+      </>
     );
 
-    return <li>{element}</li>;
+    return element;
   }
 }

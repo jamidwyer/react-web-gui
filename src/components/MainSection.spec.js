@@ -2,7 +2,8 @@ import React from "react";
 import { createRenderer } from "react-test-renderer/shallow";
 import MainSection from "./MainSection";
 import Footer from "./Footer";
-import VisibleItemList from "../containers/VisibleItemList";
+import SectionTitle from '../components/SectionTitle'
+import VisibleCheckList from "../containers/VisibleCheckList";
 
 const setup = (propOverrides) => {
   const props = Object.assign(
@@ -85,8 +86,8 @@ describe("components", () => {
     describe("visible item list", () => {
       it("should render", () => {
         const { output } = setup();
-        const [, VisibleItemList] = output.props.children;
-        expect(VisibleItemList.type).toBe(VisibleItemList);
+        const [, VisibleCheckList] = output.props.children;
+        expect(VisibleCheckList.type).toBe(VisibleCheckList);
       });
     });
 
@@ -100,7 +101,7 @@ describe("components", () => {
           (item) => item !== false
         );
         expect(renderedChildren.length).toBe(1);
-        expect(renderedChildren[0].type).toBe(VisibleItemList);
+        expect(renderedChildren[0].type).toBe(VisibleCheckList);
       });
     });
   });

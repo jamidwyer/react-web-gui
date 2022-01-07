@@ -1,6 +1,6 @@
 import React from 'react'
 import { createRenderer } from 'react-test-renderer/shallow';
-import Header from './Header'
+import SectionTitle from './SectionTitle'
 import ItemTextInput from '../components/ItemTextInput'
 
 const setup = () => {
@@ -9,7 +9,7 @@ const setup = () => {
   }
 
   const renderer = createRenderer();
-  renderer.render(<Header {...props} />)
+  renderer.render(<SectionTitle {...props} />)
   const output = renderer.getRenderOutput()
 
   return {
@@ -20,7 +20,7 @@ const setup = () => {
 }
 
 describe('components', () => {
-  describe('Header', () => {
+  describe('SectionTitle', () => {
     it('should render correctly', () => {
       const { output } = setup()
       expect(output.type).toBe('header')

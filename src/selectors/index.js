@@ -8,7 +8,7 @@ import {
 const getVisibilityFilter = (state) => state.visibilityFilter;
 const getItems = (state) => state.items;
 
-export const getVisibleItemList = createSelector(
+export const getVisibleCheckList = createSelector(
   [getVisibilityFilter, getItems],
   (visibilityFilter, items) => {
     switch (visibilityFilter) {

@@ -1,11 +1,11 @@
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import * as ItemActions from '../actions'
-import ItemList from '../components/ItemList'
-import { getVisibleItemList } from '../selectors'
+import CheckList from '../components/CheckList'
+import { getVisibleCheckList } from '../selectors'
 
 const mapStateToProps = state => ({
-  filteredItems: getVisibleItemList(state)
+  filteredItems: getVisibleCheckList(state)
 })
 
 const mapDispatchToProps = dispatch => ({
@@ -13,9 +13,9 @@ const mapDispatchToProps = dispatch => ({
 })
 
 
-const VisibleItemList = connect(
+const VisibleCheckList = connect(
   mapStateToProps,
   mapDispatchToProps
-)(ItemList)
+)(CheckList)
 
-export default VisibleItemList
+export default VisibleCheckList
