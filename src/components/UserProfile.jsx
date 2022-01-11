@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
-import Title from "../components/Title";
+import Title from "./Title";
 
 // TODO pass whole url
+// eslint-disable-next-line react/function-component-definition
 const UserProfile = ({ username }) => {
   const [data, setData] = useState(null);
 
@@ -29,23 +30,24 @@ const UserProfile = ({ username }) => {
           <div className="pa4">
             <img
               src={image}
-              class="br-100 h3 w3 dib"
+              className="br-100 h3 w3 dib"
               alt="avatar"
-            ></img>
+            />
           </div>
         ) : null}
-        <div class="profileName userCardContent">
+        <div className="profileName userCardContent">
           <Title title={name} />
-          <div class="userCardSubTitle">
+          <div className="userCardSubTitle">
             <div>{location}</div>
-            <span class="age">{age}</span>
-            <span class="language">{language}</span>
+            <span className="age">{age}</span>
+            <span className="twitterUsername">{twitterUsername}</span>
+            <span className="language">{language}</span>
           </div>
         </div>
-        <div class="websites">{url}</div>
-        <div class="w100 memberDates paddingBottom">
-          <div class="title">Joined</div>
-          <div class="content">{createdAt}</div>
+        <div className="websites">{url}</div>
+        <div className="w100 memberDates paddingBottom">
+          <div className="title">Joined</div>
+          <div className="content">{createdAt}</div>
         </div>
       </div>
     );
@@ -55,7 +57,7 @@ const UserProfile = ({ username }) => {
 };
 
 UserProfile.propTypes = {
-  source: PropTypes.string,
+  username: PropTypes.string.isRequired,
 };
 
 export default UserProfile;

@@ -1,8 +1,7 @@
 import React from "react";
 import { createRenderer } from "react-test-renderer/shallow";
-import MainSection from "./MainSection";
+import LandingPage from "./LandingPage";
 import Footer from "./Footer";
-import SectionTitle from '../components/SectionTitle'
 import VisibleCheckList from "../containers/VisibleCheckList";
 
 const setup = (propOverrides) => {
@@ -18,11 +17,11 @@ const setup = (propOverrides) => {
         clearCompleted: jest.fn(),
       },
     },
-    propOverrides
+    propOverrides,
   );
 
   const renderer = createRenderer();
-  renderer.render(<MainSection {...props} />);
+  renderer.render(<LandingPage {...props} />);
   const output = renderer.getRenderOutput();
 
   return {
@@ -33,7 +32,7 @@ const setup = (propOverrides) => {
 };
 
 describe("components", () => {
-  describe("MainSection", () => {
+  describe("LandingPage", () => {
     it("should render container", () => {
       const { output } = setup();
       expect(output.type).toBe("section");
@@ -98,7 +97,7 @@ describe("components", () => {
           completedCount: 0,
         });
         const renderedChildren = output.props.children.filter(
-          (item) => item !== false
+          (item) => item !== false,
         );
         expect(renderedChildren.length).toBe(1);
         expect(renderedChildren[0].type).toBe(VisibleCheckList);

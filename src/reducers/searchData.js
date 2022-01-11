@@ -1,6 +1,9 @@
-import schemas from "../mockData/schemas";
+import schemas from "../mockData/schemas.json";
 
-import { PERFORM_SEARCH, SET_MULTI_SELECTIONS } from "../constants/ActionTypes";
+import {
+  PERFORM_SEARCH,
+  SET_MULTI_SELECTIONS,
+} from "../constants/ActionTypes";
 
 const initialState = {
   data: schemas["@graph"].map((schema) => {
@@ -20,7 +23,7 @@ const initialState = {
   searchResults: [],
 };
 
-export default function searchData(state = initialState, action) {
+export default function searchData(action, state = initialState) {
   switch (action.type) {
     case SET_MULTI_SELECTIONS: {
       console.log(state);
@@ -30,18 +33,14 @@ export default function searchData(state = initialState, action) {
         searchTerms: action.searchTerms,
       };
     }
-    case PERFORM_SEARCH:
-      {
-        console.log(state);
-        console.log(action);
-        return {
-          ...state,
-          searchResults: state.data.filter(
-            (datum) => datum["name"] === action.searchTerms[0]
-          ),
-        };
-      }
-      console.log(state);
+    case PERFORM_SEARCH: {
+      return {
+        ...state,
+        searchResults: state.data.filter(
+          (datum) => datum.name === action.searchTerms[0],
+        ),
+      };
+    }
     default:
       console.log(state);
       return state;

@@ -1,10 +1,25 @@
 import * as types from "../constants/ActionTypes";
 
-export const addItem = (text) => ({ type: types.ADD_ITEM, text });
-export const deleteItem = (id) => ({ type: types.DELETE_ITEM, id });
-export const editItem = (id, text) => ({ type: types.EDIT_ITEM, id, text });
-export const completeItem = (id) => ({ type: types.COMPLETE_ITEM, id });
-export const completeAllItems = () => ({ type: types.COMPLETE_ALL_ITEMS });
+export const createItem = (text) => ({
+  type: types.CREATE_ITEM,
+  payload: { text },
+});
+export const deleteItem = (id) => ({
+  type: types.DELETE_ITEM,
+  payload: id,
+});
+export const editItem = (id, text) => ({
+  type: types.EDIT_ITEM,
+  id,
+  text,
+});
+export const completeItem = (id) => ({
+  type: types.COMPLETE_ITEM,
+  id,
+});
+export const completeAllItems = () => ({
+  type: types.COMPLETE_ALL_ITEMS,
+});
 export const clearCompleted = () => ({ type: types.CLEAR_COMPLETED });
 export const setVisibilityFilter = (filter) => ({
   type: types.SET_VISIBILITY_FILTER,
@@ -39,12 +54,13 @@ export const fetchSearchData = (searchTerms) => async (dispatch) => {
   try {
     const response = await fetch(url);
     const searchResults = response.json();
+    dispatch({
+      type: types.FETCH_SEARCH_DATA,
+      searchResults,
+      searchTerms,
+    });
   } catch (e) {
     console.log(e);
+    // TODO: dispatch error
   }
-  dispatch({
-    type: types.FETCH_SEARCH_DATA,
-    searchResults,
-    searchTerms,
-  });
 };

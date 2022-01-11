@@ -1,0 +1,15 @@
+video {
+  height: "100%";
+  margin: 0;
+  object-fit: "cover";
+  padding: 0;
+  width: "100%";
+}
+
+.videoBg {
+  height: "100%";
+  margin: 0;
+  padding: 0;
+  width: "100%";
+  z-index: -1;
+}
