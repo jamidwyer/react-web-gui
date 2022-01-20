@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import Form from "react-bootstrap/Form";
+import { Link } from "react-router-dom";
 import { Typeahead } from "react-bootstrap-typeahead";
 import "react-bootstrap-typeahead/css/Typeahead.css";
 import Button from "../components/Button";
-import Login from "../components/Login";
 import UserProfile from "../components/UserProfile";
 import SectionTitle from "../components/SectionTitle";
 import VisibleCheckList from "../containers/VisibleCheckList";
@@ -12,8 +12,9 @@ import CheckList from "../components/CheckList";
 import "bootstrap/dist/css/bootstrap.css"; // TODO: replace with theme
 import "../style.css";
 import "../theme/style.css"; // eslint-disable-line import/no-relative-packages
+import SecretInfo from "../components/SecretInfo";
 
-class LandingPage extends Component {
+export class LandingPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -58,8 +59,16 @@ class LandingPage extends Component {
     const { searchOptions, searchTerms, searchResults } = this.props;
     return (
       <section className="main w-100 pa4 black-80 helvetica">
-        <SectionTitle title="Login Form" />
-        <Login />
+        <SectionTitle title="Authentication" />
+        <div className="lh-copy mt3">
+          <Link className="f6 link dim black db" to="/login">
+            Log In
+          </Link>
+          <Link className="f6 link dim black db" to="/signup">
+            Sign Up
+          </Link>
+          <SecretInfo />
+        </div>
         <SectionTitle title="User Profile" />
         <UserProfile username="jamidwyer" />
         <SectionTitle title="Checklist" />

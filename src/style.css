@@ -1,3 +1,12 @@
+html,
+body {
+  height: 100%;
+}
+
+a {
+  cursor: "pointer";
+}
+
 video {
   height: "100%";
   margin: 0;
@@ -6,10 +15,32 @@ video {
   width: "100%";
 }
 
+.app {
+  height: 100%;
+}
+
 .videoBg {
   height: "100%";
   margin: 0;
   padding: 0;
   width: "100%";
   z-index: -1;
+}
+
+.rui-modal-bg {
+  background: "rgba(0, 0, 0, 0.15)";
+  height: 100%;
+}
+
+.rui-modal {
+  background: "#ffffff";
+  top: 25;
+  bottom: 25;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.close-button {
+  top: 5px;
+  right: 5px;
 }
