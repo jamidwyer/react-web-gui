@@ -109,9 +109,12 @@ export class LandingPage extends Component {
 }
 
 LandingPage.propTypes = {
-  searchOptions: PropTypes.shape,
-  searchResults: PropTypes.shape,
-  searchTerms: PropTypes.shape,
+  searchOptions: PropTypes.func,
+  searchResults: PropTypes.oneOfType([
+    PropTypes.object,
+    PropTypes.func,
+  ]),
+  searchTerms: PropTypes.func,
 };
 
 LandingPage.defaultProps = {

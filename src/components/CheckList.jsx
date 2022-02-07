@@ -2,14 +2,20 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 import Title from "./Title";
 import CheckListItem from "./CheckListItem";
+import { remap } from "../utils";
 
 // eslint-disable-next-line react/function-component-definition
-const CheckList = ({ items = [], updateItemStatus, title }) => {
+const CheckList = ({
+  items = [],
+  updateItemStatus,
+  title,
+  dataSource,
+}) => {
   const [newItemValue, setNewItemValue] = useState("");
   if (items && items.length > 0) {
     return (
       <>
-        <Title title={title} />
+        {title ? <Title title={title} /> : null}
         <input
           type="text"
           value={newItemValue}
@@ -21,7 +27,7 @@ const CheckList = ({ items = [], updateItemStatus, title }) => {
           {items.map((item) => (
             <CheckListItem
               key={item.id}
-              item={item}
+              item={remap(item, dataSource)}
               updateItemStatus={updateItemStatus}
             />
           ))}
@@ -33,15 +39,17 @@ const CheckList = ({ items = [], updateItemStatus, title }) => {
 };
 
 CheckList.propTypes = {
-  items: PropTypes.shape,
+  items: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
   title: PropTypes.string,
   updateItemStatus: PropTypes.func,
+  dataSource: PropTypes.string,
 };
 
 CheckList.defaultProps = {
   items: null,
   title: null,
   updateItemStatus: null,
+  dataSource: null,
 };
 
 export default CheckList;

@@ -5,9 +5,8 @@ import Link from "./Link";
 const setup = (propOverrides) => {
   const props = Object.assign(
     {
-      active: false,
       children: "All",
-      setFilter: jest.fn(),
+      clickAction: jest.fn(),
     },
     propOverrides,
   );
@@ -27,19 +26,13 @@ describe("component", () => {
     it("should render correctly", () => {
       const { output } = setup();
       expect(output.type).toBe("a");
-      expect(output.props.style.cursor).toBe("pointer");
       expect(output.props.children).toBe("All");
     });
 
-    it("should have class selected if active", () => {
-      const { output } = setup({ active: true });
-      expect(output.props.className).toBe("selected");
-    });
-
-    it("should call setFilter on click", () => {
+    it("should call clickAction on click", () => {
       const { output, props } = setup();
       output.props.onClick();
-      expect(props.setFilter).toBeCalled();
+      expect(props.clickAction).toBeCalled();
     });
   });
 });

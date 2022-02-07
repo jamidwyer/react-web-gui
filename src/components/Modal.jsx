@@ -1,11 +1,10 @@
-import { func } from "prop-types";
+import { func, oneOfType, shape } from "prop-types";
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import CloseButton from "./CloseButton";
 
 // eslint-disable-next-line
-const Modal = ({ props }) => {
-  console.log(props);
+const Modal = (props) => {
   const { children } = props;
   const navigate = useNavigate();
 
@@ -30,7 +29,7 @@ const Modal = ({ props }) => {
 };
 
 Modal.propTypes = {
-  children: func.isRequired,
+  children: oneOfType([shape, func]).isRequired,
 };
 
 export default Modal;

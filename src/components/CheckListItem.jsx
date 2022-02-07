@@ -3,11 +3,7 @@ import PropTypes from "prop-types";
 
 // eslint-disable-next-line react/function-component-definition
 const CheckListItem = ({ item }) => {
-  const {
-    title: name,
-    authors: creators,
-    description,
-  } = item.volumeInfo;
+  const { name, creators, description } = item;
   const itemCompleted = item.completed;
 
   const statusChange = () => {
@@ -46,7 +42,8 @@ const CheckListItem = ({ item }) => {
 };
 
 CheckListItem.propTypes = {
-  item: PropTypes.shape.isRequired,
+  item: PropTypes.oneOfType([PropTypes.shape, PropTypes.func])
+    .isRequired,
   updateItemStatus: PropTypes.func.isRequired,
 };
 
