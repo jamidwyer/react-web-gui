@@ -16,18 +16,15 @@ const initialState = {
     return thing;
   }),
   searchTerms: [],
-  searchOptions: schemas["@graph"].map((schema) => {
-    console.log(schema["rdfs:label"]);
-    return schema["rdfs:label"];
-  }),
+  searchOptions: schemas["@graph"].map(
+    (schema) => schema["rdfs:label"],
+  ),
   searchResults: [],
 };
 
 export default function searchData(action, state = initialState) {
   switch (action.type) {
     case SET_MULTI_SELECTIONS: {
-      console.log(state);
-      console.log(action);
       return {
         ...state,
         searchTerms: action.searchTerms,
@@ -42,7 +39,6 @@ export default function searchData(action, state = initialState) {
       };
     }
     default:
-      console.log(state);
       return state;
   }
 }

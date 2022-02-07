@@ -2,20 +2,6 @@ import * as types from "../constants/ActionTypes";
 import * as actions from "./index";
 
 describe("item actions", () => {
-  it("addItem should create ADD_ITEM action", () => {
-    expect(actions.addItem("Use Redux")).toEqual({
-      type: types.ADD_ITEM,
-      text: "Use Redux",
-    });
-  });
-
-  it("deleteItem should create DELETE_ITEM action", () => {
-    expect(actions.deleteItem(1)).toEqual({
-      type: types.DELETE_ITEM,
-      id: 1,
-    });
-  });
-
   it("editItem should create EDIT_ITEM action", () => {
     expect(actions.editItem(1, "Use Redux everywhere")).toEqual({
       type: types.EDIT_ITEM,

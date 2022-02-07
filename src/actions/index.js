@@ -25,28 +25,19 @@ export const setVisibilityFilter = (filter) => ({
   type: types.SET_VISIBILITY_FILTER,
   filter,
 });
-export const updateItemStatus = (id) => {
-  console.log(id);
-  return {
-    type: types.UPDATE_ITEM_STATUS,
-    id,
-  };
-};
-export const setSearchTerms = (searchTerms) => {
-  console.log(searchTerms);
-  return {
-    type: types.SET_MULTI_SELECTIONS,
-    searchTerms,
-  };
-};
+export const updateItemStatus = (id) => ({
+  type: types.UPDATE_ITEM_STATUS,
+  id,
+});
+export const setSearchTerms = (searchTerms) => ({
+  type: types.SET_MULTI_SELECTIONS,
+  searchTerms,
+});
 
-export const performSearch = (searchTerms) => {
-  console.log(searchTerms);
-  return {
-    type: types.PERFORM_SEARCH,
-    searchTerms,
-  };
-};
+export const performSearch = (searchTerms) => ({
+  type: types.PERFORM_SEARCH,
+  searchTerms,
+});
 
 export const fetchSearchData = (searchTerms) => async (dispatch) => {
   const url = new URL();
