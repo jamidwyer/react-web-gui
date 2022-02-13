@@ -1,28 +1,31 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { uniquey } from "../utils";
 
 // eslint-disable-next-line react/function-component-definition
 const CheckListItem = ({ item }) => {
-  const { name, creators, description } = item;
+  const { id, name, creators, description } = item;
+  if (!name && !description) {
+    return null;
+  }
   const itemCompleted = item.completed;
-
   const statusChange = () => {
     console.log("TODO: redux");
   };
-
+  const label = `${name}: ${creators[0]}`;
   const element = (
     <>
       <div className="flex items-center mb2">
         <input
           className="mr2"
           type="checkbox"
-          id={name}
+          id={uniquey(id)}
           value={name}
-          aria-label={name}
+          aria-label={label}
           checked={itemCompleted}
           onChange={() => statusChange()}
         />
-        <label htmlFor={name} className="lh-copy">
+        <label htmlFor={uniquey(id)} className="lh-copy">
           {name}
         </label>
       </div>
@@ -42,7 +45,7 @@ const CheckListItem = ({ item }) => {
 };
 
 CheckListItem.propTypes = {
-  item: PropTypes.oneOfType([PropTypes.shape, PropTypes.func])
+  item: PropTypes.oneOfType([PropTypes.object, PropTypes.func])
     .isRequired,
   updateItemStatus: PropTypes.func.isRequired,
 };

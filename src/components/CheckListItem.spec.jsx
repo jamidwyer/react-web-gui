@@ -5,7 +5,8 @@ import CheckListItem from "./CheckListItem";
 describe("CheckListItem", () => {
   it("should render correctly given expected input", () => {
     const item = {
-      id: 1,
+      id: "1",
+      creators: [],
       name: "Poblano peppers",
       description: "delicious",
     };

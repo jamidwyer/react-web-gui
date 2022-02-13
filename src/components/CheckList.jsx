@@ -6,7 +6,7 @@ import { remap } from "../utils";
 
 // eslint-disable-next-line react/function-component-definition
 const CheckList = ({
-  items = [],
+  items,
   updateItemStatus,
   title,
   dataSource,
@@ -24,13 +24,16 @@ const CheckList = ({
         />
         <button type="button">Add item</button>
         <fieldset className="bn">
-          {items.map((item) => (
-            <CheckListItem
-              key={item.id}
-              item={remap(item, dataSource)}
-              updateItemStatus={updateItemStatus}
-            />
-          ))}
+          {items.map((item) => {
+            const remapped = remap(item, dataSource);
+            return (
+              <CheckListItem
+                key={item.id}
+                item={remapped}
+                updateItemStatus={updateItemStatus}
+              />
+            );
+          })}
         </fieldset>
       </>
     );
