@@ -1,10 +1,43 @@
+:root {
+  --legible-font: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 html,
 body {
   height: 100%;
 }
 
+body {
+  font-family: var(--legible-font);
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: 0;
+  padding: 1rem;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 a {
+  color: var(--nevermind-blue);
   cursor: "pointer";
+  text-decoration: none;
+}
+
+label {
+  color: var(--thriller-cream);
+  padding: 1rem;
+}
+
+select {
+  margin: 1rem;
+  padding: 0.2rem;
 }
 
 video {
@@ -43,4 +76,86 @@ video {
 .close-button {
   top: 5px;
   right: 5px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+}
+
+.card-image {
+  height: 90%; /* prefer 100% but need more time to load background-images from api */
+  width: 100%;
+  object-fit: cover; /* aspect ratio */
+  vertical-align: middle;
+}
+
+.card-item {
+  display: flex;
+  padding: 1rem;
+  @media (min-width: 40rem) {
+    width: 50%;
+  }
+  @media (min-width: 56rem) {
+    width: 33.3333%;
+  }
+}
+
+.card {
+  background-color: var(--thriller-cream);
+  border-radius: 0.05rem;
+  box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  height: 18rem; /* Fix height and width to maintain albumy aspect ratio */
+  width: 18rem; /* Aimed for roughly 360px width to collapse well on a phone */
+}
+
+.card-content {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 1rem;
+}
+
+.card-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.card-column-right {
+  align-items: flex-end;
+  text-align: right;
+}
+
+.card-image {
+  overflow: hidden;
+  position: relative;
+}
+
+.card-title {
+  font-size: 1.2rem;
+  font-weight: 300;
+  flex-wrap: wrap;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.card-text {
+  flex: 1 1 auto;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  margin-bottom: 1.25rem;
 }

@@ -1,11 +1,10 @@
-jest.mock('./utils', () => {
-  const utils = jest.requireActual(
-    './utils'
-  );
+import * as utils from "./utils";
 
+jest.mock("./utils", () => {
+  const utils = jest.requireActual("./utils");
   return {
     ...utils,
-    mapGoogleBooks: jest.fn(),
+    mapGoogleBooks: jest.fn(() => {}),
   };
 });
 
@@ -17,8 +16,8 @@ describe("remap", () => {
         creators: [],
         description: "good for salsa",
       };
-      const output = remap(testItem);
-      expect((mapGoogleBooks).toHaveBeenCalled());
+      const output = utils.remap(testItem);
+      expect(utils.mapGoogleBooks.toHaveBeenCalled());
       expect(output.toBe({}));
     });
     it("should call mapGoogleBooks", () => {
@@ -43,9 +42,8 @@ describe("remap", () => {
         },
       };
       const mapped = mapGoogleBooks(testItem, "googleBooks");
-      console.log(mapped);
       expect(
-        (mapped).toBe({
+        mapped.toBe({
           name: "A Short History of Nearly Everything",
           creators: ["Bill Bryson"],
           description: "see title",
