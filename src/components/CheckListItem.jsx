@@ -4,14 +4,11 @@ import { uniquey } from "../utils";
 
 // eslint-disable-next-line react/function-component-definition
 const CheckListItem = ({ item }) => {
-  const { id, name, creators, description } = item;
+  const { id, name, creators, description, updateItemStatus } = item;
   if (!name && !description) {
     return null;
   }
   const itemCompleted = item.completed;
-  const statusChange = () => {
-    console.log("TODO: redux");
-  };
   const label = `${name}: ${creators[0]}`;
   const element = (
     <>
@@ -23,7 +20,7 @@ const CheckListItem = ({ item }) => {
           value={name}
           aria-label={label}
           checked={itemCompleted}
-          onChange={() => statusChange()}
+          onChange={() => updateItemStatus()}
         />
         <label htmlFor={uniquey(id)} className="lh-copy">
           {name}
