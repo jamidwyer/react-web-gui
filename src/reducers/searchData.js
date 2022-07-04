@@ -1,6 +1,9 @@
-import schemas from "../mockData/schemas";
+import schemas from "../mockData/schemas.json";
 
-import { PERFORM_SEARCH, SET_MULTI_SELECTIONS } from "../constants/ActionTypes";
+import {
+  PERFORM_SEARCH,
+  SET_MULTI_SELECTIONS,
+} from "../constants/ActionTypes";
 
 const initialState = {
   data: schemas["@graph"].map((schema) => {
@@ -13,37 +16,29 @@ const initialState = {
     return thing;
   }),
   searchTerms: [],
-  searchOptions: schemas["@graph"].map((schema) => {
-    console.log(schema["rdfs:label"]);
-    return schema["rdfs:label"];
-  }),
+  searchOptions: schemas["@graph"].map(
+    (schema) => schema["rdfs:label"],
+  ),
   searchResults: [],
 };
 
-export default function searchData(state = initialState, action) {
+export default function searchData(action, state = initialState) {
   switch (action.type) {
     case SET_MULTI_SELECTIONS: {
-      console.log(state);
-      console.log(action);
       return {
         ...state,
         searchTerms: action.searchTerms,
       };
     }
-    case PERFORM_SEARCH:
-      {
-        console.log(state);
-        console.log(action);
-        return {
-          ...state,
-          searchResults: state.data.filter(
-            (datum) => datum["name"] === action.searchTerms[0]
-          ),
-        };
-      }
-      console.log(state);
+    case PERFORM_SEARCH: {
+      return {
+        ...state,
+        searchResults: state.data.filter(
+          (datum) => datum.name === action.searchTerms[0],
+        ),
+      };
+    }
     default:
-      console.log(state);
       return state;
   }
 }

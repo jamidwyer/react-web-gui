@@ -1,8 +1,6 @@
 # react-web-ui
 
-Intended as a boilerplate, this runs a React web app in Docker. It's currently just two half-baked components: 1. A list of items that use hard-coded local data. 2. A search box that filters as you type.
-
-I don't recommend using this for anything but sample code yet, but to use this Docker image:
+Intended as a boilerplate, this runs a React web app listing various available components in Docker. It's currently just a handful of components and I don't recommend using this for anything but sample code yet, but to use this Docker image:
 
 `docker run jami/react-web-ui`
 
@@ -23,6 +21,16 @@ Clone to react-web-ui, change to that directory, then:
 `docker-compose up --build`
 
 Open http://localhost:3000.
+
+## Deploy a new Docker image
+
+`docker login username <YOUR DOCKER USERNAME>`
+
+```sh
+docker-compose build
+docker tag react-web-ui <YOUR DOCKER USERNAME>/react-web-ui
+docker push <YOUR DOCKER USERNAME>/react-web-ui
+```
 
 ## Roadmap
 
