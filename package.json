@@ -1,7 +1,9 @@
 {
-  "name": "react-web-ui",
+  "name": "@jamidwyer/react-web-ui",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/jamidwyer"
+  },
   "version": "1.0.0",
-  "private": true,
   "devDependencies": {
     "@axe-core/react": "^4.3.2",
     "@rollup/plugin-babel": "^5.3.1",
