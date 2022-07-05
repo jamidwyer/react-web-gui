@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
-import Title from "./Title";
-import CheckListItem from "./CheckListItem";
+import Title from "./Title.jsx";
+import CheckListItem from "./CheckListItem.jsx";
 import { remap } from "../utils";
 
 // eslint-disable-next-line react/function-component-definition
