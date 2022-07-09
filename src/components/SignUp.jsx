@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import Title from "./Title";
-import CloseButton from "./CloseButton";
+import Title from "./Title.jsx";
+import CloseButton from "./CloseButton.jsx";
 
 // eslint-disable-next-line react/function-component-definition
 const SignUp = () => {

@@ -3,7 +3,7 @@
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/jamidwyer"
   },
-  "version": "1.0.0",
+  "version": "1.0.1",
   "devDependencies": {
     "@axe-core/react": "^4.3.2",
     "@rollup/plugin-babel": "^5.3.1",

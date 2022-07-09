@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
-import Title from "./Title";
+import Title from "./Title.jsx";
 
 // TODO pass whole url
 // eslint-disable-next-line react/function-component-definition
-const UserProfile = ({ username }) => {
+const Profile = ({ username }) => {
   const [data, setData] = useState(null);
 
   useEffect(() => {
@@ -56,8 +56,8 @@ const UserProfile = ({ username }) => {
   return <div>No data.</div>;
 };
 
-UserProfile.propTypes = {
+Profile.propTypes = {
   username: PropTypes.string.isRequired,
 };
 
-export default UserProfile;
+export default Profile;

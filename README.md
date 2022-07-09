@@ -1,10 +1,14 @@
 # react-web-ui
+u
+A UI library I work on when I need a component. It is neither good nor useful (yet?).
 
-Intended as a boilerplate, this runs a React web app listing various available components in Docker. It's currently just a handful of components and I don't recommend using this for anything but sample code yet, but to use this Docker image:
+## Use
 
-`docker run jami/react-web-ui`
+`npm i @jamidwyer/react-web-ui`
 
-## Requirements
+## Contributing
+
+### Requirements
 
 Other versions might work. These ones did.
 
@@ -14,7 +18,7 @@ node 14.15.0
 
 npm 8.1.2
 
-## Local development
+### Development
 
 Clone to react-web-ui, change to that directory, then:
 
@@ -22,15 +26,24 @@ Clone to react-web-ui, change to that directory, then:
 
 Open http://localhost:3000.
 
-## Deploy a new Docker image
+### Release
 
-`docker login username <YOUR DOCKER USERNAME>`
+Set up a [personal access token](https://github.com/settings/tokens) with repo and write:packages access.
 
-```sh
-docker-compose build
-docker tag react-web-ui <YOUR DOCKER USERNAME>/react-web-ui
-docker push <YOUR DOCKER USERNAME>/react-web-ui
+Add it to in your .npmrc:
+
 ```
+registry=https://registry.npmjs.org/
+@YOUR_GITHUB_USERNAME:registry=https://npm.pkg.github.com/
+//npm.pkg.github.com/:_authToken=YOUR_AUTH_TOKEN
+```
+
+Bump the version number in package.json.
+
+`npm run rollup`
+`npm publish`
+
+To see the changes, bump the version number in the project where you are using react-web-ui and run `npm i`.
 
 ## Roadmap
 
@@ -53,3 +66,7 @@ There may be a typo in one of the mount paths.
 Maybe you need to peek around the Docker filesystem.
 
 `docker exec -t -i react-web-ui /bin/bash`
+
+## References
+
+[How to Create and Publish a React Component Library](https://dev.to/alexeagleson/how-to-create-and-publish-a-react-component-library-2oe)

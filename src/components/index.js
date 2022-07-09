@@ -1,4 +1,9 @@
 export { default as Button } from "./Button.jsx";
 export { default as Card } from "./Card.jsx";
 export { default as CheckList } from "./CheckList.jsx";
+export { default as CheckListItem } from "./CheckListItem.jsx";
+export { default as CloseButton } from "./CloseButton.jsx";
+export { default as Login } from "./Login.jsx";
+export { default as Profile } from "./Profile.jsx";
+export { default as SignUp } from "./SignUp.jsx";
 export { default as Title } from "./Title.jsx";

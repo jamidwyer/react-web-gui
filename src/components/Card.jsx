@@ -1,9 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-// For screen reading purposes, I might like more labels like "Album:", "Year:",
-// and "Catalog Number:", but it would be hard to fit those even on the ~ 360px
-// albums I went with.
 function Card({ item }) {
   const {
     image,

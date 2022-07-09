@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import CloseButton from "./CloseButton";
-import Title from "./Title";
+import CloseButton from "./CloseButton.jsx";
+import Title from "./Title.jsx";
 
 // eslint-disable-next-line react/function-component-definition
-const Login = () => {
+const Login = ({ loginAction }) => {
   const [errorMessage, setErrorMessage] = useState(""); // eslint-disable-line no-unused-vars
   const [shown, setShown] = useState(true);
   const [email, setEmail] = useState("");
@@ -33,6 +33,11 @@ const Login = () => {
   const onLoginClicked = async () => {
     setShown(false);
     console.log("TODO: login");
+    const userData = {
+      email: email,
+      password: password,
+    };
+    loginAction(userData, "/dashboard");
   };
 
   return shown ? (

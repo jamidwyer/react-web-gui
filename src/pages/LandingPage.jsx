@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { Typeahead } from "react-bootstrap-typeahead";
 import "react-bootstrap-typeahead/css/Typeahead.css";
 import Button from "../components/Button";
-import UserProfile from "../components/UserProfile";
+import Profile from "../components/Profile";
 import SectionTitle from "../components/SectionTitle";
 import Card from "../components/Card";
 import Grid from "../components/Grid";
@@ -105,7 +105,7 @@ export class LandingPage extends Component {
             <SecretInfo />
           </div>
           <SectionTitle title="User Profile" />
-          <UserProfile username="jamidwyer" />
+          <Profile username="jamidwyer" />
           {topAlbums && topAlbums[0] ? (
             <>
               <SectionTitle title="Card" />
