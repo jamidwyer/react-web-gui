@@ -14,7 +14,6 @@ import CheckList from "../components/CheckList";
 import DataTable from "../components/DataTable";
 import "bootstrap/dist/css/bootstrap.css"; // TODO: replace with theme
 import "../style.css";
-import "../theme/style.css"; // eslint-disable-line import/no-relative-packages
 import SecretInfo from "../components/SecretInfo";
 import { remap } from "../utils";
 
@@ -86,7 +85,10 @@ export class LandingPage extends Component {
   }
 
   render() {
-    const { count, items, rows, cols, topAlbums } = this.state;
+    console.log("render");
+    const {
+      count, items, rows, cols, topAlbums,
+    } = this.state;
     const { searchOptions, searchTerms, searchResults } = this.props;
     return (
       <div className="main w-100 pa4 black-80 helvetica">

@@ -1,7 +1,8 @@
 import React, { useState } from "react";
+import PropTypes from "prop-types";
 import { Link, useNavigate } from "react-router-dom";
-import CloseButton from "./CloseButton.jsx";
-import Title from "./Title.jsx";
+import CloseButton from "./CloseButton";
+import Title from "./Title";
 
 // eslint-disable-next-line react/function-component-definition
 const Login = ({ loginAction }) => {
@@ -34,8 +35,8 @@ const Login = ({ loginAction }) => {
     setShown(false);
     console.log("TODO: login");
     const userData = {
-      email: email,
-      password: password,
+      email,
+      password,
     };
     loginAction(userData, "/dashboard");
   };
@@ -81,7 +82,9 @@ const Login = ({ loginAction }) => {
             className="pa0 ma0 lh-copy f6 pointer"
             htmlFor="remember"
           >
-            <input type="checkbox" id="remember" /> Remember me
+            <input type="checkbox" id="remember" />
+            {" "}
+            Remember me
           </label>
         </fieldset>
         <div>
@@ -113,6 +116,10 @@ const Login = ({ loginAction }) => {
       </div>
     </div>
   ) : null;
+};
+
+Login.propTypes = {
+  loginAction: PropTypes.func.isRequired,
 };
 
 export default Login;

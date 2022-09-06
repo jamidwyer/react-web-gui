@@ -4,7 +4,7 @@ import Title from "./Title";
 
 // TODO pass whole url
 // eslint-disable-next-line react/function-component-definition
-const Profile = ({ username }) => {
+const UserProfile = ({ username }) => {
   const [data, setData] = useState(null);
 
   useEffect(() => {
@@ -56,8 +56,8 @@ const Profile = ({ username }) => {
   return <div>No data.</div>;
 };
 
-Profile.propTypes = {
+UserProfile.propTypes = {
   username: PropTypes.string.isRequired,
 };
 
-export default Profile;
+export default UserProfile;

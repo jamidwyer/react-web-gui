@@ -14,10 +14,6 @@ describe("CheckListItem", () => {
       <CheckListItem item={item} updateItemStatus={jest.fn} />,
     );
     expect(output.props.children[0].type).toBe("div");
-    expect(output.props.children[3].type).toBe("div");
-    expect(output.props.children[3].props.children.type).toBe(
-      "button",
-    );
   });
   it("should fail", () => {
     const item = {

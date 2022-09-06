@@ -77,7 +77,9 @@ const ResetPassword = () => {
             className="pa0 ma0 lh-copy f6 pointer"
             htmlFor="remember"
           >
-            <input type="checkbox" id="remember" /> Remember me
+            <input type="checkbox" id="remember" />
+            {" "}
+            Remember me
           </label>
         </fieldset>
         <div>
