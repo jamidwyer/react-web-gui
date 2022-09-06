@@ -1,12 +1,25 @@
 # react-web-ui
-u
+
 A UI library I work on when I need a component. It is neither good nor useful (yet?).
 
 ## Use
 
-`npm i @jamidwyer/react-web-ui`
+`npm i @jamidwyer/react-web-ui --save`
+
+```jsx
+import { Component } from "@jamidwyer/react-web-ui"
+
+render {
+    return (
+        <Component />
+    )
+}
+```
 
 ## Contributing
+
+`npm i`
+`npm run start`
 
 ### Requirements
 
@@ -14,15 +27,13 @@ Other versions might work. These ones did.
 
 Docker
 
-node 14.15.0
+node 14.17.0
 
 npm 8.1.2
 
 ### Development
 
 Clone to react-web-ui, change to that directory, then:
-
-`docker-compose up --build`
 
 Open http://localhost:3000.
 
@@ -32,7 +43,7 @@ Set up a [personal access token](https://github.com/settings/tokens) with repo a
 
 Add it to in your .npmrc:
 
-```
+```sh
 registry=https://registry.npmjs.org/
 @YOUR_GITHUB_USERNAME:registry=https://npm.pkg.github.com/
 //npm.pkg.github.com/:_authToken=YOUR_AUTH_TOKEN
@@ -49,7 +60,13 @@ To see the changes, bump the version number in the project where you are using r
 
 https://trello.com/b/cb1FLbrm/react-web-ui
 
-## Docker gotchas
+## Docker
+
+You can also run this in docker with
+
+`docker-compose up --build`
+
+### Docker gotchas
 
 `docker: invalid reference format.`
 
