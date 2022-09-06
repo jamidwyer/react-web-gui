@@ -4,13 +4,13 @@ import { Routes, Route } from "react-router-dom";
 import Login from "./Login";
 import SignUp from "./SignUp";
 import ResetPassword from "./ResetPassword";
-import { LandingPage } from "../pages/LandingPage";
+import { Button } from "./Button";
 
 // TODO: move to hooks and functions
 // eslint-disable-next-line react/function-component-definition
 const App = ({ config }) => (
   <Routes>
-    <Route path="/" element={<LandingPage config={config} />} />
+    <Route path="/" element={<Button config={config} />} />
     <Route path="/login" element={<Login />} />
     <Route path="/signup" element={<SignUp />} />
     <Route path="/reset-password" element={<ResetPassword />} />

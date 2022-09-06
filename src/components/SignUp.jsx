@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import Title from "./Title.jsx";
-import CloseButton from "./CloseButton.jsx";
+import Title from "./Title";
+import CloseButton from "./CloseButton";
 
 // eslint-disable-next-line react/function-component-definition
 const SignUp = () => {
@@ -83,7 +83,9 @@ const SignUp = () => {
             className="pa0 ma0 lh-copy f6 pointer"
             htmlFor="remember"
           >
-            <input type="checkbox" id="remember" /> Remember me
+            <input type="checkbox" id="remember" />
+            {" "}
+            Remember me
           </label>
         </fieldset>
         <div>

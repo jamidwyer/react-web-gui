@@ -1,3 +1,4 @@
+import React from "react";
 import CheckList from "./CheckList";
 import setup from "../jest-setup";
 
@@ -23,9 +24,7 @@ describe("Checklist", () => {
       <CheckList items={goodItems} title="Test List" />,
     );
 
-    expect(output.props.children[1].type).toBe("input");
-    expect(output.props.children[2].type).toBe("button");
-    expect(output.props.children[3].type).toBe("fieldset");
+    expect(output.props.children[2].type).toBe("ul");
   });
 
   it("should render correctly without title", () => {
@@ -39,9 +38,7 @@ describe("Checklist", () => {
     ];
     const { output } = setup(<CheckList items={goodItems} />);
 
-    expect(output.props.children[1].type).toBe("input");
-    expect(output.props.children[2].type).toBe("button");
-    expect(output.props.children[3].type).toBe("fieldset");
+    expect(output.props.children[2].type).toBe("ul");
   });
 
   it("should fail with bad data", () => {

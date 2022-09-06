@@ -1,3 +1,10 @@
+export const findItems = (items) => {
+  if (items.data) {
+    return items.data;
+  }
+  return items;
+};
+
 export const mapGoogleBooks = (item) => {
   const {
     title: name,
@@ -23,10 +30,9 @@ export const mapLastFmAlbums = (item) => {
     catno: catalogNumber,
     year: dateCreated,
   } = item;
-  const bigImage =
-    image[3]["#text"].length > 0
-      ? image[3]["#text"]
-      : "http://placehold.it/320x320";
+  const bigImage = image[3]["#text"].length > 0
+    ? image[3]["#text"]
+    : "http://placehold.it/320x320";
   const creators = [artist.name];
   const remapped = {
     dateCreated,

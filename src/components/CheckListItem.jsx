@@ -4,7 +4,9 @@ import { uniquey } from "../utils";
 
 // eslint-disable-next-line react/function-component-definition
 const CheckListItem = ({ item }) => {
-  const { id, name, creators, description, updateItemStatus } = item;
+  const {
+    id, name, creators, description, updateItemStatus,
+  } = item;
   if (!name && !description) {
     return null;
   }

@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 // eslint-disable-next-line react/function-component-definition
 const SectionTitle = ({ title }) => (
   <div className="bb mt4 mb4">
-    <h3 className="f3 fw4">{title}</h3>
+    <h2 className="f3 fw4">{title}</h2>
   </div>
 );
 

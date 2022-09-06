@@ -5,10 +5,10 @@ import PropTypes from "prop-types";
 const Button = (props) => {
   const { name, clickHandler } = props;
   return (
-    <div>
+    <div className="ml2">
       <button
         onClick={clickHandler}
-        className="b ph3 pv2 mt2 dim ba b--black pointer f6 fw5 dark-gray"
+        className="ph3 pv2 dim pointer f6 fw5"
         type="button"
       >
         {name}
