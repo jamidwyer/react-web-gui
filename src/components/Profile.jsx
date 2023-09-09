@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
-import Title from "./Title";
+import Title from "./Title.jsx";
 
-// TODO pass whole url
-// eslint-disable-next-line react/function-component-definition
 const Profile = ({ username }) => {
   const [data, setData] = useState(null);
 

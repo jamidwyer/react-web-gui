@@ -1,8 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
-import Title from "./Title";
-import CheckListItem from "./CheckListItem";
-import AddItem from "./AddItem";
+import Title from "./Title.jsx";
+import CheckListItem from "./CheckListItem.jsx";
+import AddItem from "./AddItem.jsx";
 import { remap } from "../utils";
 
 function CheckList({
