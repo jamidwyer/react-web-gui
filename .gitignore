@@ -44,3 +44,5 @@ workspace.code-workspace
 build/
 
 node_modules
+
+public/main.js

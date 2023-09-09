@@ -1,18 +1,12 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import Form from "react-bootstrap/Form";
 import { Link } from "react-router-dom";
-import { Typeahead } from "react-bootstrap-typeahead";
-import "react-bootstrap-typeahead/css/Typeahead.css";
 import Button from "../components/Button";
 import Profile from "../components/Profile";
 import SectionTitle from "../components/SectionTitle";
 import Card from "../components/Card";
 import Grid from "../components/Grid";
-import VisibleCheckList from "../containers/VisibleCheckList";
-import CheckList from "../components/CheckList";
 import DataTable from "../components/DataTable";
-import "bootstrap/dist/css/bootstrap.css"; // TODO: replace with theme
 import "../style.css";
 import SecretInfo from "../components/SecretInfo";
 import { remap } from "../utils";
@@ -127,27 +121,6 @@ export class LandingPage extends Component {
               </div>
             </>
           ) : null}
-          <SectionTitle title="Checklist" />
-          <VisibleCheckList
-            items={items}
-            title="To read"
-            dataSource="googleBooks"
-            updateItemStatus={this.updateItemStatus}
-          />
-          <SectionTitle title="Search with autocomplete" />
-          <Form.Group style={{ marginTop: "20px" }}>
-            <Form.Label>Choose Schema</Form.Label>
-            <Typeahead
-              id="basic-typeahead-multiple"
-              labelKey="name"
-              multiple
-              onChange={this.setSearchTerms}
-              options={searchOptions}
-              placeholder="Choose your schema..."
-              selected={searchTerms}
-            />
-          </Form.Group>
-          {searchResults ? <CheckList items={searchResults} /> : null}
           <SectionTitle title="Data Table" />
           <div className="measure">
             <DataTable cols={cols} rows={rows} />
