@@ -35,7 +35,7 @@ npm 8.1.2
 
 Clone to react-web-ui, change to that directory, then:
 
-Open http://localhost:3000.
+Open http://localhost:9500.
 
 ### Release
 
