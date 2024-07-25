@@ -3,7 +3,10 @@
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/jamidwyer"
   },
-  "version": "1.0.5",
+  "repository": {
+    "url": "https://github.com/jamidwyer/react-web-ui.git"
+  },
+  "version": "1.0.6",
   "devDependencies": {
     "@axe-core/react": "^4.3.2",
     "@babel/core": "^7.24.9",
@@ -63,6 +66,7 @@
   "files": [
     "dist"
   ],
+  "type": "module",
   "scripts": {
     "dev": "webpack serve",
     "build": "webpack .",
