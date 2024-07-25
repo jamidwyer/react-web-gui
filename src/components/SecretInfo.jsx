@@ -11,7 +11,7 @@ const SecretInfo = () => {
   }
 
   return (
-    <div className="measure" id="secret-info">
+    <div className="max-w-md" id="secret-info">
       <Title title="Secret Info" />
       <p>You should only see this if you logged in!</p>
     </div>

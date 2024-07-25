@@ -25,7 +25,7 @@ const Profile = ({ username }) => {
     return (
       <div>
         {image ? (
-          <div className="pa4">
+          <div className="p-4">
             <img
               src={image}
               className="br-100 h3 w3 dib"

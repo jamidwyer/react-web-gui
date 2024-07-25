@@ -5,9 +5,7 @@ import SearchIcon from "./SearchIcon";
 import MenuLink from "./MenuLink";
 import UserActions from "./UserActions";
 
-function Header({
-  name, link, logo, menuLinks, user,
-}) {
+function Header({ name, link, logo, menuLinks, user }) {
   return (
     <header>
       <span>

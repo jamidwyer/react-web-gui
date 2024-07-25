@@ -5,9 +5,7 @@ import CheckListItem from "./CheckListItem.jsx";
 import AddItem from "./AddItem.jsx";
 import { remap } from "../utils";
 
-function CheckList({
-  items, updateItemStatus, title, dataSource,
-}) {
+function CheckList({ items, updateItemStatus, title, dataSource }) {
   if (items && items.length > 0) {
     return (
       <>

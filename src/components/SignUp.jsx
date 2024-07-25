@@ -36,13 +36,16 @@ const SignUp = () => {
       role="button"
       className="rui-modal-bg flex h-100"
     >
-      <div className="rui-modal center v-mid pa4 bg-washed-red relative">
+      <div className="rui-modal center v-mid p-4 bg-washed-red relative">
         <CloseButton />
         <Title title="Sign Up" />
         {errorMessage && <div className="fail">{errorMessage}</div>}
         <fieldset className="ba b--transparent ph0 mh0">
-          <div className="mt3">
-            <label htmlFor="email" className="db fw6 lh-copy f6">
+          <div className="mt-3">
+            <label
+              htmlFor="email"
+              className="block fw6 leading-normal text-sm"
+            >
               Email
               <input
                 id="email"
@@ -54,7 +57,10 @@ const SignUp = () => {
             </label>
           </div>
           <div className="mv3">
-            <label className="db fw6 lh-copy f6" htmlFor="password">
+            <label
+              className="block fw6 leading-normal text-sm"
+              htmlFor="password"
+            >
               Password
               <input
                 id="password"
@@ -67,7 +73,10 @@ const SignUp = () => {
             </label>
           </div>
           <div className="mv3">
-            <label className="db fw6 lh-copy f6" htmlFor="password">
+            <label
+              className="block fw6 leading-normal text-sm"
+              htmlFor="password"
+            >
               Confirm Password
               <input
                 id="confirmPassword"
@@ -80,17 +89,15 @@ const SignUp = () => {
             </label>
           </div>
           <label
-            className="pa0 ma0 lh-copy f6 pointer"
+            className="pa0 ma0 leading-normal text-sm cursor"
             htmlFor="remember"
           >
-            <input type="checkbox" id="remember" />
-            {" "}
-            Remember me
+            <input type="checkbox" id="remember" /> Remember me
           </label>
         </fieldset>
         <div>
           <input
-            className="b ph3 pv2 sans-serif mt2 dim ba b--black near-white bg-near-black pointer f6 mid-gray"
+            className="b px-3 py-2 sans-serif mt2 dim ba b--black near-white bg-near-black cursor text-sm mid-gray"
             onClick={onSignUpClicked}
             disabled={
               !email || !password || password !== confirmPassword
@@ -100,10 +107,10 @@ const SignUp = () => {
           />
         </div>
         <hr />
-        <div className="lh-copy mt3">
+        <div className="leading-normal mt-3">
           <Link
             onClick={logIn}
-            className="f6 link dim black db"
+            className="text-sm link dim black block"
             to="/login"
           >
             Already have an account? Log in.

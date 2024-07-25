@@ -48,13 +48,16 @@ const Login = ({ loginAction }) => {
       role="button"
       className="rui-modal-bg flex h-100"
     >
-      <div className="rui-modal center v-mid pa4 bg-washed-red relative">
+      <div className="rui-modal center v-mid p-4 bg-washed-red relative">
         <CloseButton />
         <Title title="Log in" />
         {errorMessage && <div className="fail">{errorMessage}</div>}
         <fieldset id="login" className="ba b--transparent ph0 mh0">
-          <div className="mt3">
-            <label htmlFor="email" className="db fw6 lh-copy f6">
+          <div className="mt-3">
+            <label
+              htmlFor="email"
+              className="block fw6 leading-normal text-sm"
+            >
               Email
               <input
                 id="email"
@@ -66,7 +69,10 @@ const Login = ({ loginAction }) => {
             </label>
           </div>
           <div className="mv3">
-            <label className="db fw6 lh-copy f6" htmlFor="password">
+            <label
+              className="block fw6 leading-normal text-sm"
+              htmlFor="password"
+            >
               Password
               <input
                 id="password"
@@ -79,17 +85,15 @@ const Login = ({ loginAction }) => {
             </label>
           </div>
           <label
-            className="pa0 ma0 lh-copy f6 pointer"
+            className="pa0 ma0 leading-normal text-sm cursor"
             htmlFor="remember"
           >
-            <input type="checkbox" id="remember" />
-            {" "}
-            Remember me
+            <input type="checkbox" id="remember" /> Remember me
           </label>
         </fieldset>
         <div>
           <input
-            className="b ph3 pv2 sans-serif mt2 dim ba b--black near-white bg-near-black pointer f6 mid-gray"
+            className="b px-3 py-2 sans-serif mt2 dim ba b--black near-white bg-near-black cursor text-sm mid-gray"
             clickHander={onLoginClicked}
             disabled={!email || !password}
             type="submit"
@@ -97,17 +101,17 @@ const Login = ({ loginAction }) => {
           />
         </div>
         <hr />
-        <div className="lh-copy mt3">
+        <div className="leading-normal mt-3">
           <Link
             onClick={signUp}
-            className="f6 link dim black db"
+            className="text-sm link dim black block"
             to="/signup"
           >
             Sign Up
           </Link>
           <Link
             onClick={resetPassword}
-            className="f6 link dim black db"
+            className="text-sm link dim black block"
             to="/reset-password"
           >
             Forgot your password?

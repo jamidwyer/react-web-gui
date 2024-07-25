@@ -1,15 +1,26 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
-import Button from "../components/Button";
+import {
+  faBowlRice,
+  faList,
+  faUtensils,
+} from "@fortawesome/free-solid-svg-icons";
+
+import Button from "../components/Button.jsx";
+import NavLinks from "../components/NavLinks";
+import PageHeader from "../components/PageHeader";
+import Pagination from "../components/Pagination.jsx";
 import Profile from "../components/Profile";
 import SectionTitle from "../components/SectionTitle";
 import Card from "../components/Card";
 import Grid from "../components/Grid";
 import DataTable from "../components/DataTable";
-import "../style.css";
-import SecretInfo from "../components/SecretInfo";
 import { remap } from "../utils";
+import AddItem from "../components/AddItem";
+import AddItemForm from "../components/AddItemForm.jsx";
+import LoginForm from "../components/LoginForm";
+import Search from "../components/Search.jsx";
+import InventoryTable from "../components/InventoryTable";
 
 export class LandingPage extends Component {
   constructor(props) {
@@ -31,8 +42,7 @@ export class LandingPage extends Component {
   }
 
   componentDidMount() {
-    // eslint-disable-next-line react/destructuring-assignment
-    const { REACT_APP_LASTFM_API_KEY } = this.props.config;
+    const TEMP_LASTFM_API_KEY = "fa55cd845d16c619538c345274b2a9a2";
     fetch(
       "https://www.googleapis.com/books/v1/volumes?q=bioinformatics",
     )
@@ -40,7 +50,7 @@ export class LandingPage extends Component {
       .then((books) => this.setState({ items: books.items }));
 
     fetch(
-      `https://ws.audioscrobbler.com/2.0/?method=user.gettopalbums&user=jamidwyer&api_key=${REACT_APP_LASTFM_API_KEY}&format=json`,
+      `https://ws.audioscrobbler.com/2.0/?method=user.gettopalbums&user=jamidwyer&api_key=${TEMP_LASTFM_API_KEY}&format=json`,
     )
       .then((response) => response.json())
       .then((data) => {
@@ -79,33 +89,39 @@ export class LandingPage extends Component {
   }
 
   render() {
-    console.log("render");
-    const {
-      count, items, rows, cols, topAlbums,
-    } = this.state;
-    const { searchOptions, searchTerms, searchResults } = this.props;
+    const { count, items, rows, cols, topAlbums } = this.state;
+    const navLinks = [
+      { name: "Inventory", href: "/", icon: faList },
+      {
+        name: "Recipes",
+        href: "/recipes",
+        icon: faUtensils,
+      },
+    ];
     return (
-      <div className="main w-100 pa4 black-80 helvetica">
+      <div className="main w-100 p-4 black-80 helvetica">
         <header>
           <h1>React Web UI Components</h1>
         </header>
         <section>
+          <SectionTitle title="PageHeader" />
+          <PageHeader logoIcon={faBowlRice} />
           <SectionTitle title="Authentication" />
-          <div className="lh-copy mt3">
-            <Link className="f6 link dim black db" to="/login">
-              Log In
-            </Link>
-            <Link className="f6 link dim black db" to="/signup">
-              Sign Up
-            </Link>
-            <SecretInfo />
-          </div>
+          <LoginForm />
+          <SectionTitle title="NavLinks" />
+          <NavLinks links={navLinks} currentPath="/" />
+          <SectionTitle title="Search" />
+          <Search />
+          <SectionTitle title="Add Item" />
+          <AddItem />
+          <SectionTitle title="Add Item Form" />
+          <AddItemForm items={[]} quantitativeUnits={[]} />
           <SectionTitle title="User Profile" />
           <Profile username="jamidwyer" />
           {topAlbums && topAlbums[0] ? (
             <>
               <SectionTitle title="Card" />
-              <div className="measure">
+              <div className="max-w-md">
                 <Card
                   item={remap(topAlbums[0], "lastFmAlbums")}
                   dataSource="lastFmAlbums"
@@ -121,22 +137,38 @@ export class LandingPage extends Component {
               </div>
             </>
           ) : null}
-          <SectionTitle title="Data Table" />
-          <div className="measure">
+          <SectionTitle title="DataTable" />
+          <div className="max-w-md">
             <DataTable cols={cols} rows={rows} />
           </div>
-          <SectionTitle title="Button" />
-          <div className="measure">
-            <div className="flex mb2">{count}</div>
-            <Button
-              clickHandler={this.incrementCount}
-              name="Increment"
-            />
-            <Button
-              clickHandler={this.decrementCount}
-              name="Decrement"
+          <SectionTitle title="InventoryTable" />
+          <div className="max-w-md">
+            <InventoryTable
+              inventoryItems={[
+                {
+                  id: 1,
+                  amount: 1,
+                  quantitativeUnits: "Each",
+                  product: { id: 1, name: "Garlic" },
+                  expirationDate: "2024-08-25",
+                },
+              ]}
             />
           </div>
+          <SectionTitle title="Button" />
+          <div>
+            <div className="flex mb-2">{count}</div>
+            <div className="max-w-md flex flex-row space-x-4">
+              <Button clickHandler={this.incrementCount}>
+                Increment
+              </Button>
+              <Button clickHandler={this.decrementCount}>
+                Decrement
+              </Button>
+            </div>
+          </div>
+          <SectionTitle title="Pagination" />
+          <Pagination totalPages={5} currentPage={2} />
         </section>
       </div>
     );
@@ -147,21 +179,12 @@ LandingPage.propTypes = {
   config: PropTypes.shape({
     REACT_APP_LASTFM_API_KEY: PropTypes.string,
   }),
-  searchOptions: PropTypes.func,
-  searchResults: PropTypes.oneOfType([
-    PropTypes.object,
-    PropTypes.func,
-  ]),
-  searchTerms: PropTypes.func,
 };
 
 LandingPage.defaultProps = {
   config: {
     lastFmApiKey: "",
   },
-  searchOptions: null,
-  searchResults: {},
-  searchTerms: null,
 };
 
 export default LandingPage;

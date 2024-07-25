@@ -1,6 +1,6 @@
 # react-web-ui
 
-A UI library I work on when I need a component. It is neither good nor useful (yet?).
+A UI library I work on when I need a component. Work in progress.
 
 ## Use
 
@@ -18,28 +18,26 @@ render {
 
 ## Contributing
 
-`npm i`
-`npm run start`
-
 ### Requirements
 
 Other versions might work. These ones did.
 
-Docker
+node 22.2.0
 
-node 14.17.0
-
-npm 8.1.2
+npm 10.8.2
 
 ### Development
 
 Clone to react-web-ui, change to that directory, then:
 
-Open http://localhost:9500.
+`npm i && npm run dev`
+
+Component examples will load here: http://localhost:9500.
 
 ### Release
 
-Set up a [personal access token](https://github.com/settings/tokens) with repo and write:packages access.
+Set up a [personal access token](https://github.com/s
+ettings/tokens) with repo and write:packages access.
 
 Add it to in your .npmrc:
 
@@ -51,38 +49,13 @@ registry=https://registry.npmjs.org/
 
 Bump the version number in package.json.
 
-`npm run rollup`
-`npm publish`
+`npm run rollup && npm publish`
 
 To see the changes, bump the version number in the project where you are using react-web-ui and run `npm i`.
 
 ## Roadmap
 
 https://trello.com/b/cb1FLbrm/react-web-ui
-
-## Docker
-
-You can also run this in docker with
-
-`docker-compose up --build`
-
-### Docker gotchas
-
-`docker: invalid reference format.`
-
-There may be a typo in one of the mount paths.
-
----
-
-`docker: Error response from daemon: invalid mode`
-
-There may be a typo in one of the mount paths.
-
----
-
-Maybe you need to peek around the Docker filesystem.
-
-`docker exec -t -i react-web-ui /bin/bash`
 
 ## References
 
