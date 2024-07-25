@@ -4,9 +4,7 @@ import { uniquey } from "../utils";
 
 // eslint-disable-next-line react/function-component-definition
 const CheckListItem = ({ item }) => {
-  const {
-    id, name, creators, description, updateItemStatus,
-  } = item;
+  const { id, name, creators, description, updateItemStatus } = item;
   if (!name && !description) {
     return null;
   }
@@ -14,7 +12,7 @@ const CheckListItem = ({ item }) => {
   const label = `${name}: ${creators[0]}`;
   const element = (
     <>
-      <div className="flex items-center mb2">
+      <div className="flex items-center mb-2">
         <input
           className="mr2"
           type="checkbox"
@@ -24,14 +22,14 @@ const CheckListItem = ({ item }) => {
           checked={itemCompleted}
           onChange={() => updateItemStatus()}
         />
-        <label htmlFor={uniquey(id)} className="lh-copy">
+        <label htmlFor={uniquey(id)} className="leading-normal">
           {name}
         </label>
       </div>
-      <div className="flex mb2">
+      <div className="flex mb-2">
         {creators ? <text>{creators}</text> : null}
       </div>
-      <div className="flex mb2">
+      <div className="flex mb-2">
         {description ? <text>{description}</text> : null}
       </div>
       <div>

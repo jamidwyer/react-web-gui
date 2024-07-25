@@ -1,5 +1,140 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "hortaregular";
+  src:
+    url("fonts/horta_demo.woff2") format("woff2"),
+    url("fonts/horta_demo.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Cherry Cream Soda";
+  src: url("fonts/CherryCreamSoda-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
 :root {
-  --legible-font: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --legible-font: "Gotham", "Sofia", "filson-pro", "Courier",
+    "Helvetica Neue", "Helvetica", "Arial", "Geneva", "sans-serif";
+
+  /* green */
+  --honeydew: rgb(240, 255, 240);
+  --sage: rgb(185, 196, 177);
+  --granny-smith-apple: #9de093;
+  --asparagus: #7ba05b;
+  --darksage: #598556;
+  --avocado: rgb(110, 112, 66);
+  --olive: #6e750e;
+  --tilapia: rgb(95, 115, 89);
+  --parsley: rgb(44, 101, 29);
+
+  /* orange */
+  --apricot: #fdd5b1;
+  --apricot-peel: #ffb16d;
+  --butterscotch: #fdb147;
+  --cheddar: rgb(246, 178, 83);
+  --orange: rgb(255, 165, 0);
+  --tangerine: #f28500;
+  --carrot: #f36f09;
+  --smashed-pumpkin: #ff6d3a;
+  --tomato-sauce: rgb(255, 99, 71);
+  --bloodorange: #fe4b03;
+
+  /* yellow */
+  --lemon-chiffon: rgb(255, 250, 205);
+  --banana-mania: #fbe7b2;
+  --butter: #ffff81;
+  --banana: #ffff7e;
+  --lemon: #ffff38;
+  --maize: #f4d054;
+  --egg-yolk: rgb(245, 181, 4);
+  --curry: rgb(215, 169, 75);
+  --mustard: #ceb301;
+
+  /* white */
+  --whipped-cream: rgb(240, 240, 240);
+  --coconut: #fefefe;
+  --mozzarella: #faf6ed;
+  --jasmine-rice: #f1eeec;
+  --bit-of-sugar: rgb(244, 242, 236);
+  --eggshell: rgb(242, 243, 245);
+  --egg-white: rgb(239, 243, 234);
+  --baby-artichoke: rgb(233, 227, 206);
+  --cod-belly: rgb(210, 199, 190);
+  --oyster: rgb(187, 179, 178);
+
+  /* purple */
+  --aubergine: #3d0734;
+  --deep-lavender: #8d5eb7;
+  --eggplant: #614051;
+  --sugar-beet: rgb(131, 66, 83);
+  --sugar-plum: #914e75;
+
+  /* gray */
+  --stainless: #d4d4d8;
+  --tilapia-scale: rgb(164, 180, 182);
+  --trout-belly: rgb(175, 177, 189);
+  --herring: rgb(108, 120, 119);
+  --trout-back: rgb(101, 93, 88);
+  --coho-back: rgb(86, 80, 73);
+  --charcoal: #343837;
+  --black-bean: #282222;
+  --licorice: #1a1110;
+
+  /* blue */
+  --blueberry: #1f3050;
+
+  /* pink */
+  --peach-puff: rgb(255, 218, 185);
+  --rainbow-trout: rgb(215, 166, 175);
+  --dark-salmon: rgb(233, 150, 122);
+  --peach-peel: #e1887c;
+  --salmon: rgb(250, 128, 114);
+  --coho-salmon: rgb(185, 96, 94);
+  --persimmon: rgb(255, 89, 89);
+  --grapefruit: #fd5956;
+  --wild-watermelon: rgb(#fd5b78);
+  --tomato: #e62200;
+
+  /* brown */
+  --almond: #eed9c4;
+  --bisque: rgb(255, 228, 196);
+  --blanched-almond: rgb(255, 235, 205);
+  --wheat: rgb(245, 222, 179);
+  --ground-ginger: rgb(217, 202, 159);
+  --brown-sugar: #af6e4d;
+  --caramel: #af6f09;
+  --cocoa: rgb(86, 36, 36);
+  --chocolate: #3d1c02;
+  --cod-speckle: rgb(55, 38, 30);
+
+  --logo-font: "Horta";
+  --party-font: "hortaregular", "Surveyor", "Bodoni", "abril-display";
+  --dinner-party-font: "Circular,Gotham,Ogonek-Light,Georgia,Times,serif";
+}
+
+:focus {
+  outline: solid var(--bloodorange);
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
 *,
@@ -10,6 +145,8 @@
 
 html,
 body {
+  color: var(--black-bean);
+  font-size: 20px;
   height: 100%;
 }
 
@@ -24,19 +161,50 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+nav {
+  font-size: 1.6rem;
+}
+
+h1 {
+  font-size: 3.6rem;
+  letter-spacing: 0.2rem;
+  margin-left: 1rem;
+}
+
+h2 {
+  font-family: var(--dinner-party-font);
+}
+
+h3 {
+  color: var(--black-bean);
+  font-family: var(--dinner-party-font);
+  font-size: 1rem;
+}
+
 a {
   color: var(--nevermind-blue);
-  cursor: "pointer";
+  cursor: "cursor";
   text-decoration: none;
+}
+
+a:hover {
+  color: var(--jasmine-rice);
+}
+
+button {
+  background-color: var(--jasmine-rice);
+  border: 1px var(--licorice) solid;
+  border-radius: 2px;
+  color: var(--tomato);
+  font-family: var(--legible-font);
 }
 
 label {
   color: var(--thriller-cream);
-  padding: 1rem;
 }
 
 select {
-  margin: 1rem;
+  margin: 0;
   padding: 0.2rem;
 }
 
@@ -46,6 +214,10 @@ video {
   object-fit: "cover";
   padding: 0;
   width: "100%";
+}
+
+th {
+  text-align: start;
 }
 
 .app {
@@ -118,8 +290,8 @@ video {
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  height: 18rem; /* Fix height and width to maintain albumy aspect ratio */
-  width: 18rem; /* Aimed for roughly 360px width to collapse well on a phone */
+  height: 18rem;
+  width: 15rem;
 }
 
 .card-content {

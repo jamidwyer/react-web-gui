@@ -8,9 +8,7 @@ const itemTypes = {
   Inventory: InventoryListItem,
 };
 
-function List({
-  items, title, dataSource, listType,
-}) {
+function List({ items, title, dataSource, listType }) {
   if (!items) return null;
 
   const foundItems = findItems(items);

@@ -7,12 +7,14 @@ describe("SectionTitle", () => {
       <SectionTitle title="A Section Title" />,
     );
     expect(output.type).toBe("div");
-    expect(output.props.className).toBe("bb mt4 mb4");
+    expect(output.props.className).toBe(
+      "border-b border-solid mt-4 mb-4",
+    );
 
     const { children } = output.props;
 
     expect(children.type).toBe("h2");
     expect(children.props.children).toBe("A Section Title");
-    expect(children.props.className).toBe("f3 fw4");
+    expect(children.props.className).toBe("text-2xl font-normal");
   });
 });

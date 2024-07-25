@@ -26,9 +26,10 @@ module.exports = {
         use: "babel-loader", // loader which we are going to use
       },
       {
-        use: ['style-loader', 'css-loader'],
-        test: /\.css$/
-      }
+        use: ["style-loader", "css-loader", "postcss-loader"],
+        include: path.resolve(__dirname, "src"),
+        test: /\.css$/,
+      },
     ],
   },
 };

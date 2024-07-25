@@ -1,5 +1,6 @@
 import setup from "../jest-setup";
 import Modal from "./Modal";
+
 const mockedUsedNavigate = jest.fn();
 
 jest.mock("react-router-dom", () => ({

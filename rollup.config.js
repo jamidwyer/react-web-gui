@@ -11,12 +11,12 @@ export default [
       {
         file: packageJson.main,
         format: "cjs",
-        sourcemap: 'inline',
+        sourcemap: "inline",
       },
       {
         file: packageJson.module,
         format: "esm",
-        sourcemap: 'inline',
+        sourcemap: "inline",
       },
     ],
     plugins: [

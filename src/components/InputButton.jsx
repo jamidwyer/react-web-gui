@@ -7,7 +7,7 @@ const InputButton = (props) => {
   return (
     <div>
       <input
-        className="b ph3 pv2 sans-serif mt2 dim ba b--black near-white bg-near-black pointer f6 mid-gray"
+        className="b px-3 py-2 sans-serif mt2 dim ba b--black near-white bg-near-black cursor text-sm mid-gray"
         onClick={clickHandler}
         disabled={disabled}
         modal={modal}

@@ -2,9 +2,9 @@ import React from "react";
 import PropTypes from "prop-types";
 
 // eslint-disable-next-line react/function-component-definition
-const Link = ({ children, clickAction }) => (
+const Link = ({ children, clickAction, href }) => (
   // eslint-disable-next-line
-  <a onClick={() => clickAction()}>
+  <a href={href} onClick={() => clickAction()}>
     {children}
   </a>
 );
